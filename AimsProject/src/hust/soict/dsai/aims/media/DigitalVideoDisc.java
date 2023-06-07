@@ -1,51 +1,17 @@
-package hust.soict.dsai.aims.disc;
-//Digital Video Disc
-public class DigitalVideoDisc {
-	private String title;
-	private String category;
-	private String director;
-	private int length;
-	private float cost;	
+package hust.soict.dsai.aims.media;
+
+public class DigitalVideoDisc extends Disc implements Playable{
+//Add fields
 	private int id;
 	private static int nbDigitalVideoDiscs = 0;
-	
+//Generate getter & setter
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
-	public String getCategory() {
-		return category;
-	}
-	public void setCategory(String category) {
-		this.category = category;
-	}
-	public String getDirector() {
-		return director;
-	}
-	public void setDirector(String director) {
-		this.director = director;
-	}
-	public int getLength() {
-		return length;
-	}
-	public void setLength(int length) {
-		this.length = length;
-	}
-	public float getCost() {
-		return cost;
-	}
-	public void setCost(float cost) {
-		this.cost = cost;
-	}
-	
+//Generate constructors
 	public DigitalVideoDisc(String title) {
 		super();
 		this.title = title;
@@ -66,7 +32,6 @@ public class DigitalVideoDisc {
 		this.cost = cost;
 		this.id = ++ nbDigitalVideoDiscs;
 	}
-
 	public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
 		super();
 		this.title = title;
@@ -76,12 +41,16 @@ public class DigitalVideoDisc {
 		this.cost = cost;
 		this.id = ++ nbDigitalVideoDiscs;
 	}	
-	
+//Create methods
 	public String toString() {
 		return "DVD - [" + title + "] - [" + category +"] - ["+director+"] - [" + length + "]: [" + cost + "] $";
-	}
-	
+	}	
 	public boolean isMatch(String title) {
 		return this.title.equalsIgnoreCase(title);
 	}
+//Add the play() method
+	public void play() {
+		System.out.println("Playing DVD: " + this.getTitle());
+		System.out.println("DVD length: " + this.getLength());
+		}
 }

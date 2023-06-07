@@ -1,11 +1,11 @@
 package hust.soict.dsai.test.store;
-import hust.soict.dsai.aims.disc.DigitalVideoDisc;
+import hust.soict.dsai.aims.media.DigitalVideoDisc;
 import hust.soict.dsai.aims.store.Store;
 
 //Store Test
 public class StoreTest {
 	public static void main(String[] args) {
-		Store store = new Store(10);
+		Store store = new Store();
 		
 		DigitalVideoDisc dvd1 = new DigitalVideoDisc
         		("Avengers", "Action", "Joss Whedon", 90, 30.05f);
@@ -14,9 +14,9 @@ public class StoreTest {
         DigitalVideoDisc dvd3 = new DigitalVideoDisc
         		("Aladin", "Animation", "Ron Clements, John Musker", 90, 18.99f);
         
-        store.addDVD(dvd1);
-        store.addDVD(dvd2);
-        store.addDVD(dvd3);
-        store.removeDVD(dvd1);
+        store.addMedia(dvd1);
+        store.addMedia(dvd2);
+        store.addMedia(dvd3);
+        store.removeMedia(dvd3);
 	}
 }
