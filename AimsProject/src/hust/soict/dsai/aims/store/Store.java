@@ -24,5 +24,17 @@ public class Store {
             }else{System.out.println("The media is not in the store");}
         }
 	}
-		
+//search for media	
+	public Media search(String title) {
+        for (Media med : itemsInStore) {
+            if (med.getTitle().equals(title)) {
+                return med;
+            }
+        }
+        return null;
+    }
+
+    public List<Media> getItemsInStore() {
+        return itemsInStore;
+    }
 }

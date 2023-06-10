@@ -41,10 +41,7 @@ public class DigitalVideoDisc extends Disc implements Playable{
 		this.cost = cost;
 		this.id = ++ nbDigitalVideoDiscs;
 	}	
-//Create methods
-	public String toString() {
-		return "DVD - [" + title + "] - [" + category +"] - ["+director+"] - [" + length + "]: [" + cost + "] $";
-	}	
+//Create methods	
 	public boolean isMatch(String title) {
 		return this.title.equalsIgnoreCase(title);
 	}
@@ -53,4 +50,13 @@ public class DigitalVideoDisc extends Disc implements Playable{
 		System.out.println("Playing DVD: " + this.getTitle());
 		System.out.println("DVD length: " + this.getLength());
 		}
+//Override toString() method
+	@Override
+	public String toString() {
+		return "DVD - [" + title + 
+				"] - [" + category +
+				"] - ["+ director +
+				"] - [" + length + 
+				"]: [" + cost + "$]";
+	}
 }

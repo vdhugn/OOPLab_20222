@@ -9,6 +9,9 @@ public class CompactDisc extends Disc implements Playable {
 	public String getArtist() {
 		return artist;
 	}
+	public List<Track> getTracks() {
+        return tracks;
+    }
 //Generate constructors
 	public CompactDisc(String director, int length, String artist) {
 		super(director, length);
@@ -26,21 +29,18 @@ public class CompactDisc extends Disc implements Playable {
 //Create methods
 	//add a track to the track list
 	public void addTrack(Track newTrack) {
-		for (Track i : tracks) {
-			if (i != newTrack) {
-				tracks.add(newTrack);
-				System.out.println("The track has been added");
-			}else {System.out.println("The track has already in the track list");}
-		}
+		if (!tracks.contains(newTrack)) {
+			tracks.add(newTrack);
+			System.out.println("The track has been added");
+		}else {System.out.println("The track has already in the track list");}
 	}
 	//remove a track from the track list
 	public void removeTrack(Track inputTrack) {
-		for (Track i : tracks) {
-            if (i == inputTrack) {
-                tracks.remove(inputTrack);
-                System.out.println("The track has been removed from the list");
-            }else{System.out.println("The track is not in the list");}
-        }
+        if (tracks.contains(inputTrack)) {
+            tracks.remove(inputTrack);
+            System.out.println("The track has been removed from the list");
+        }else{System.out.println("The track is not in the list");}
+  
 	}
 	//get the CD's length
 	public void getCDLength() {
@@ -50,11 +50,21 @@ public class CompactDisc extends Disc implements Playable {
 		}System.out.println("The length of the CD is: " + CDLength);
 	}
 //Add the play() method
+	@Override
 	public void play() {
 		for (int i=0; i<tracks.size(); i++) {
 			System.out.println(tracks.get(i));
 			Track track = new Track(null, 0);
 			track.play();
 		}
+	}
+	@Override
+	public String toString() {
+		return "CD - [" + title + 
+				"] - [" + artist +
+				"] - [" + category +
+				"] - ["+ director +
+				"] - [" + length + 
+				"]: [" + cost + "$]";
 	}
 }

@@ -1,5 +1,5 @@
 package hust.soict.dsai.aims.cart;
-import hust.soict.dsai.aims.media.Media;
+import hust.soict.dsai.aims.media.*;
 import java.util.*;
 
 //Cart
@@ -32,4 +32,40 @@ public class Cart {
       }
       return totalCost;
 	}
+//printCart
+	public void printCart() {
+		System.out.println("***********************CART***********************");
+		for (Media med : itemsOrdered) {
+			System.out.println(med.toString());
+		}
+		System.out.println("Total cost: " + totalCost() + "$");
+		System.out.println("***************************************************");
+	}
+	
+    public int getNumberOfItems() {
+        return itemsOrdered.size();
+    }
+    public List<Media> getItemsOrdered() {
+        return itemsOrdered;
+    }
+//search by title
+    public Media search(String title) {
+        for (Media med : itemsOrdered) {
+            if (med.getTitle().equals(title)) {
+                return med;}
+        }return null;
+    }
+//search by id
+    public Media search(int id) {
+        for (Media med : itemsOrdered) {
+            if (med.getId() == id) {
+                return med;
+            }
+        }return null;
+    }
+//empty the cart
+    public void clearCart() {
+        itemsOrdered.clear();
+        System.out.println("Cart cleared.");
+    }
 }
